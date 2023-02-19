@@ -14,13 +14,12 @@ function App() {
   const getActivity = useCallback(async() => {
     const response = await fetch('http://www.boredapi.com/api/activity/');
     const data = await response.json();
-    console.log(data.activity)
     setActivity(data.activity)
-  })
+  }, [])
 
   useEffect(() => {
     getActivity()
-  }, [])
+  }, [getActivity])
 
   const changeActivity = () => {
     if (!image) {
