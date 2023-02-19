@@ -1,23 +1,60 @@
-import logo from './logo.svg';
+
+import { useCallback, useEffect, useState } from 'react';
 import './App.css';
+import FaceOne from './face2.png'
+import FaceTwo from './face1.png'
+import Arrow from './arrow.png'
 
 function App() {
+
+  const [activity, setActivity] = useState('');
+  const [image, setImage] = useState(true);
+
+
+  const getActivity = useCallback(async() => {
+    const response = await fetch('http://www.boredapi.com/api/activity/');
+    const data = await response.json();
+    console.log(data.activity)
+    setActivity(data.activity)
+  })
+
+  useEffect(() => {
+    getActivity()
+  }, [])
+
+  const changeActivity = () => {
+    if (!image) {
+      getActivity();
+    }
+    else {
+      setActivity('hmm...')
+    }
+
+    setImage((image) => !image)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+      <img src={Arrow} className='arrow' alt="arrow"/>
+      <img src={Arrow} className='arrow2' alt="arrow"/>
+
+      <div className='container'>
+        <h1>If you are bored, click the button and get an idea to fill your free time.</h1>
+      </div>
+
+      <div  className='container'>
+          <button className={image ? 'btn green' : 'btn red'} onClick={changeActivity}>
+              {image ? <img src={FaceTwo} width="180px" alt="face"/>  : <img src={FaceOne} width="180px" alt="face"/>}
+          </button>
+
+      </div>
+
+      <div className='container activity'>
+          <h2> {activity}</h2>
+      </div>
+
     </div>
   );
 }

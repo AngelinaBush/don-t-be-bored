@@ -1,38 +1,143 @@
-.App {
+body {
+  background: #7d6e8377;
+  margin: 0 ;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+
+.arrow {
+  position: fixed;
+  z-index: -1;
+  width: 30%;
+  left:0;
+  top: 10%;
+  transform: rotate(320deg);
+}
+
+.arrow2 {
+  position: fixed;
+  z-index: -1;
+  right:0;
+  width: 30%;
+  transform: rotate(130deg);
+}
+
+
+.activity {
+  background-color: #b3afb4;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-top: 3%;
+  padding: 10px 10px 5px 5px;
+  border: none;
+  color: #e8e8e8;
+  text-shadow: 2px 2px 4px #5a5a5a;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.btn {
+  text-align: center;
+  margin-top: 3%;
+  padding: 3%;
+  cursor: pointer;
+  border:none;
+  border-radius: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+
+.red {
+  background: #DFD3C3;
+}
+
+.green {
+  background: #F8EDE3;
+}
+
+h1, h2 {
+  font-family: 'Coming Soon', cursive;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  z-index: 3;
+  font-weight: bold;
+  text-shadow: 3px 3px 2px #ffffffb3;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h2 {
+  font-size: 40px;
+}
+
+
+@media all and (max-width:915px) {
+  img {
+    width: 250px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 35px;
+  }
+
+  .btn {
+    margin-top: 10%;
+  }
+  
+  .activity {
+    margin-top: 15%;
+  }
+
+  .arrow {
+    top:25%;
+  }
+
+  .arrow2 {
+    top:15%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+@media all and (max-width:550px) {
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  img {
+    width: 180px;
+  }
+
+  .arrow {
+
+    top:30%;
+    z-index: 1;
+  }
+
+  .arrow2 {
+    top:20%;
+    z-index: 1;
+  }
+  
+  .activity {
+    margin-top:15%;
+  }
+
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
